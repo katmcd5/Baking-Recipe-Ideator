@@ -1,0 +1,28 @@
+#box {
+  border: 1px solid black;
+  height: 500px;
+  width: 600px;
+  overflow-x: auto;
+  justify-content: center;
+  padding: 25px 25px 25px 25px;
+  background: white
+}
+
+h1{
+  font-family: 'Urbanist', sans-serif;
+
+}
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  background-image: linear-gradient(to bottom right, rgb(175, 175, 244), rgb(61, 73, 203));
+}
+
+button {
+  height: 30px;
+  width: 70px;
+}
+
+/* .ingredient {
+  padding-bottom: 10px;
+} */
