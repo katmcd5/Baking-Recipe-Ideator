@@ -8,8 +8,10 @@ const ingredients = ['eggs', 'flour', 'vanilla extract', 'baking powder', 'butte
 
 function createCheckbox() {
   const box = document.getElementById('box');
+
+  //create form
   const form = document.createElement('form');
-  for (let ing of ingredients) {
+  for (let ing of ingredients) { //create checkbox divs
     const miniBox = document.createElement('div');
     miniBox.id = 'miniBox';
     miniBox.setAttribute('class', 'ingredient')
@@ -27,6 +29,8 @@ function createCheckbox() {
     form.appendChild(miniBox);
   }
   box.appendChild(form);
+  // form.action = '/ingredient';
+  // form.method = 'POST';
 
   function submitButton() {
     const submit = document.createElement('button');
@@ -47,12 +51,22 @@ function createCheckbox() {
 function onClick(e) {
     e.preventDefault();
     let checked = document.querySelectorAll('.ingredient');
-    let result = [];
-
+    let ingredients = [];
     for (let checkbox of checked) {
-      if (checkbox.checked) result.push(checkbox.name)
+      if (checkbox.checked) ingredients.push(checkbox.name)
     }
-    return result;
+    console.log(ingredients);
+
+    const formData = new FormData();
+    ingredients.forEach((item) => formData.append("ingredients", JSON.stringify(ingredients)))
+
+    fetch('/ingredients', {
+      method: 'POST',
+      body: formData
+    })
+      .then(data => data.json())
+      .then(data => console.log(data))
+    
 }
 
 

@@ -18,17 +18,14 @@
     "url": "https://github.com/katmcd5/Solo-Proj/issues"
   },
   "dependencies": {
-    "nodemon": "^2.0.20",
     "express": "^4.16.3",
     "mongoose": "^5.11.9",
+    "multer": "^1.4.5-lts.1",
     "node-fetch": "^2.3.0",
+    "nodemon": "^2.0.20",
     "sass-loader": "^12.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.2.3",
     "concurrently": "^5.0.0",
     "cross-env": "^6.0.3",
     "css-loader": "^6.5.1",
@@ -37,10 +34,6 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "nodemon": "^1.18.9",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.64.1",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.5.0",
-    "webpack-hot-middleware": "^2.24.3"
+    "style-loader": "^3.3.1"
   }
 }
