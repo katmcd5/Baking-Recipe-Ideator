@@ -4,10 +4,9 @@ const Recipe = require('./RecipeModel');
 const RecipeController = {};
 
 RecipeController.getRecipe = (req, res, next) => {
-  // const name = req.body.name;
-  const ingredients = req.body;
-  console.log('request body', ingredients);
-  Recipe.find({ingredients})
+  const ingredients = req.body.ingredients;
+
+  Recipe.find({ingredients: JSON.parse(ingredients)})
     .then(recipeFound => {
       res.locals.recipeFound = recipeFound,
       next();

@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const multer = require("multer");
+const upload = multer();
 
 
 const recipeController = require('./recipeController');
@@ -18,8 +20,8 @@ app.get('/', (req, res) =>
 ); //serve index.html
 
 
-app.post('/ingredients', recipeController.getRecipe, (req, res) => {
-  res.status(200).send(res.locals.recipeFound);
+app.post('/ingredients', upload.none(), recipeController.getRecipe, (req, res) => {
+  res.status(200).json(res.locals.recipeFound);
 });
 
 

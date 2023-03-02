@@ -1,28 +1,70 @@
 #box {
-  border: 1px solid black;
-  height: 500px;
+  border: 5px solid #0FA3B1;
+  border-radius: 25px;
+  height: 400px;
   width: 600px;
-  overflow-x: auto;
-  justify-content: center;
   padding: 25px 25px 25px 25px;
-  background: white
+  background: #F9F7F3;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+}
+
+#prompt {
+  margin-bottom: 10px;
+}
+
+form {
+  column-width: 150px;
+}
+
+.ingredient {
+  border: 3px solid #F7A072;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+
 }
 
 h1{
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Neonderthaw', cursive;
+  font-size: 50px;
+  margin-left: 20px;
+  margin-top: -2px;
+  color: #0FA3B1;
 
 }
 body {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  background-image: linear-gradient(to bottom right, rgb(175, 175, 244), rgb(61, 73, 203));
+  background-color: #EDDEA4;
+  color: rgb(26, 26, 26)
 }
 
 button {
   height: 30px;
   width: 70px;
+  background-color: #F7A072;
 }
 
-/* .ingredient {
-  padding-bottom: 10px;
-} */
+#recipe {
+  background-color: #F9F7F3;
+  width: 200px;
+  height: 200px;
+  padding: 25px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 5px solid #0FA3B1;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+a {
+  color: rgb(26, 26, 26);
+}
+
+.image {
+  width: 100%;
+}

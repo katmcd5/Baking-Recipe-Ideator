@@ -4,11 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // document.querySelector('body').insertBefore(box, document.querySelector('form'))
 });
 
-const ingredients = ['eggs', 'flour', 'vanilla extract', 'baking powder', 'butter', 'sugar', 'baking soda', 'banana', 'chocolate chips'];
+const ingredients = [
+  'apples',          'baking powder',
+  'baking soda',     'banana',
+  'blueberries',     'brown sugar',
+  'butter',          'carrots',
+  'chocolate chips', 'cinnamon',
+  'cocoa powder',    'coffee',
+  'cream cheese',    'eggs',
+  'flour',           'heavy cream',
+  'lemon',           'molasses',
+  'nutmeg',          'pie crust',
+  'salt',            'strawberries',
+  'sugar',           'vanilla extract',
+  'vegetable oil'
+]
 
 function createCheckbox() {
   const box = document.getElementById('box');
 
+  const question = document.createElement('div');
+  question.innerText = 'Check all the ingredients you\'ve got in your pantry.';
+  question.setAttribute('id', 'prompt');
+  box.appendChild(question);
   //create form
   const form = document.createElement('form');
   for (let ing of ingredients) { //create checkbox divs
@@ -19,7 +37,7 @@ function createCheckbox() {
     checkbox.setAttribute('type', 'checkbox');
     checkbox.classList.add('ingredient');
     checkbox.name = ing;
-    checkbox.id = 'ingredient';
+    checkbox.id = ing;
     let boxLabel = document.createElement('label');
     boxLabel.htmlFor = ing;
     const text = document.createTextNode(`${ing}`)
@@ -53,20 +71,40 @@ function onClick(e) {
     let checked = document.querySelectorAll('.ingredient');
     let ingredients = [];
     for (let checkbox of checked) {
-      if (checkbox.checked) ingredients.push(checkbox.name)
+      if (checkbox.checked) ingredients.push(checkbox.name);
+      checkbox.checked = false;
     }
-    console.log(ingredients);
 
     const formData = new FormData();
-    ingredients.forEach((item) => formData.append("ingredients", JSON.stringify(ingredients)))
+    formData.append("ingredients", JSON.stringify(ingredients));
 
+    //AJAX post method
     fetch('/ingredients', {
       method: 'POST',
       body: formData
     })
       .then(data => data.json())
-      .then(data => console.log(data))
+      .then(data => recipePop(data))
+      // .then(data => alert(data[0].name, data[0].link))
     
+}
+
+function recipePop(obj) {
+  const name = obj[0].name;
+  const link = obj[0].link;
+  const food = obj[0].image;
+  const recipe = document.createElement('div');
+  recipe.setAttribute('id', 'recipe');
+  const tag = document.createElement('a');
+  tag.setAttribute('href', `${link}`);
+  tag.setAttribute('target', '_blank');
+  tag.innerText = `You can make ${name}!`;
+  recipe.appendChild(tag);
+  const image = document.createElement('img');
+  image.setAttribute('src', `${food}`);
+  image.setAttribute('class', 'image');
+  recipe.appendChild(image);
+  document.body.appendChild(recipe);
 }
 
 
