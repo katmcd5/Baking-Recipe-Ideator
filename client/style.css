@@ -53,18 +53,42 @@ button {
   background-color: #F9F7F3;
   width: 200px;
   height: 200px;
-  padding: 25px;
+  padding: 5px 10px 10px 10px;
   margin-left: 10px;
   margin-top: 10px;
   border: 5px solid #0FA3B1;
   border-radius: 25px;
   font-size: 20px;
+  overflow-y: auto;
 }
 
 a {
   color: rgb(26, 26, 26);
+  font-size: 90%;
+  text-decoration: none;
 }
 
 .image {
-  width: 100%;
+
+  max-width: 100%;
+  /* max-height: 100%; */
+}
+
+.link {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  background-color:#EDDEA4;
+  padding: 5px;
+  border: 1px solid #F7A072;
+  border-radius: 10px;
+}
+
+button.delete {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 50%;
+  display: flex;
+  justify-content: center;
+  float: right;
 }
