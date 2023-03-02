@@ -61,14 +61,24 @@ function createCheckbox() {
     //create button label
     const text = document.createTextNode('Submit');
     submit.appendChild(text);
-    const linebreak = document.createElement("br");
-    //append it all
-    form.appendChild(linebreak);
+
     form.appendChild(submit);
-    form.addEventListener('submit', onClick);
+    submit.addEventListener('click', onClick);
   }
   //call function
   submitButton();
+
+  function randomButton() {
+    const random = document.createElement('button');
+    random.setAttribute('type', 'submit');
+    random.id = 'randomButton';
+    const text = document.createTextNode('Random');
+    random.appendChild(text);
+    form.appendChild(random);
+    random.addEventListener('click', randomClick);
+  }
+
+  randomButton();
 }
 
 
@@ -94,15 +104,42 @@ function onClick(e) {
     
 }
 
-function recipePop(obj) {
-  if (obj.length === 0) alert('No recipes match! Please restock your ingredients.');
-  const name = obj[0].name;
-  const link = obj[0].link;
-  const food = obj[0].image;
+function randomClick(e) {
+  e.preventDefault(); //prevents auto refresh
+  fetch('/random')
+    .then(data => data.json())
+    // .then(data => console.log(data))
+    .then(data => recipePop(data))
+
+}
+
+
+function recipePop(arr) {
+  if (arr.length === 0) alert('No recipes match! Please restock your ingredients.');
+
+  let name;
+  let link;
+  let food;
+
+  if (arr.length === 1) {
+    name = arr[0].name;
+    link = arr[0].link;
+    food = arr[0].image;
+  }
+  else {
+    const randomIndex = Math.floor(Math.random()*arr.length);
+    console.log(arr[randomIndex]);
+    name = arr[randomIndex].name;
+    // console.log(name);
+    link = arr[randomIndex].link;
+    // console.log(link);
+    food = arr[randomIndex].image;
+  }
+  
 
   //create pop up div
   const recipe = document.createElement('div');
-  recipe.setAttribute('id', 'recipe');
+  recipe.setAttribute('class', 'recipe');
 
   //create delete button on pop up
   const deleteButton = document.createElement('button');
@@ -128,6 +165,7 @@ function recipePop(obj) {
   image.setAttribute('src', `${food}`);
   image.setAttribute('class', 'image');
   recipe.appendChild(image);
+
   document.body.appendChild(recipe);
 
 }

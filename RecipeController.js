@@ -16,4 +16,15 @@ RecipeController.getRecipe = (req, res, next) => {
     });
 };
 
+RecipeController.randomRecipe = (req, res, next) => {
+  Recipe.find({})
+  .then(allRecipe => {
+    res.locals.random = allRecipe,
+    next();
+  })
+  .catch(err => {
+    next({log:'error in randomRecipe middleware', status: 400, message: {err: 'Error, check log for details.'}});
+  });
+};
+
 module.exports = RecipeController;

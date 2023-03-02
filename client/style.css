@@ -1,3 +1,18 @@
+h1{
+  font-family: 'Neonderthaw', cursive;
+  font-size: 50px;
+  margin-left: 20px;
+  margin-top: -2px;
+  color: #0FA3B1;
+
+}
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  background-color: #EDDEA4;
+  color: rgb(26, 26, 26)
+}
+
 #box {
   border: 5px solid #0FA3B1;
   border-radius: 25px;
@@ -28,28 +43,20 @@ form {
 
 }
 
-h1{
-  font-family: 'Neonderthaw', cursive;
-  font-size: 50px;
-  margin-left: 20px;
-  margin-top: -2px;
-  color: #0FA3B1;
-
-}
-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  background-color: #EDDEA4;
-  color: rgb(26, 26, 26)
-}
 
 button {
   height: 30px;
   width: 70px;
   background-color: #F7A072;
+  display: inline-block;
+  margin-right: 15px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border-color: #0FA3B1;
+
 }
 
-#recipe {
+.recipe {
   background-color: #F9F7F3;
   width: 200px;
   height: 200px;
@@ -69,9 +76,7 @@ a {
 }
 
 .image {
-
   max-width: 100%;
-  /* max-height: 100%; */
 }
 
 .link {

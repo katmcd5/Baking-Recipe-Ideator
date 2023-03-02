@@ -24,6 +24,10 @@ app.post('/ingredients', upload.none(), recipeController.getRecipe, (req, res) =
   res.status(200).json(res.locals.recipeFound);
 });
 
+app.get('/random', upload.none(), recipeController.randomRecipe, (req, res) => {
+  res.status(200).json(res.locals.random);
+})
+
 
 app.use((req, res) => res.sendStatus(404));
 
