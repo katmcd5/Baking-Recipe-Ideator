@@ -20,15 +20,15 @@ app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, 'client/login.html'))
 ); //serve index.html
 
-app.get('/recipes', (req, res) => res.sendFile(path.join(__dirname, 'client/index.html')));
+// app.get('/recipes', (req, res) => res.sendFile(path.join(__dirname, 'client/index.html')));
 
-app.post('/ingredients', upload.none(), recipeController.getRecipe, (req, res) => {
-  res.status(200).json(res.locals.recipeFound);
-});
+// app.post('/ingredients', upload.none(), recipeController.getRecipe, (req, res) => {
+//   res.status(200).json(res.locals.recipeFound);
+// });
 
-app.get('/random', upload.none(), recipeController.randomRecipe, (req, res) => {
-  res.status(200).json(res.locals.random);
-})
+// app.get('/random', upload.none(), recipeController.randomRecipe, (req, res) => {
+//   res.status(200).json(res.locals.random);
+// })
 
 app.post('/signup', 
   userController.createUser, 
@@ -44,24 +44,11 @@ app.post('/signup',
 */
 app.post('/login', userController.verifyUser,
   (req, res) => {
-  // what should happen here on successful log in?
-  // if (res.locals.user.length === 0) res.redirect('/signup');
     res.redirect('/recipes')
   });
 
 app.use((req, res) => res.sendStatus(404));
 
-// Global error handler
-// app.use((err, req, res, next) => {
-//   const defaultErr = {
-//     log: 'Express error handler caught unknown middleware error',
-//     status: 400,
-//     message: { err: 'An error occurred' },
-//   };
-//   const errorObj = Object.assign({}, defaultErr, err);
-//   console.log(errorObj.log);
-//   return res.status(errorObj.status).json(errorObj.message);
-// });
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
 
