@@ -1,13 +1,21 @@
-h1{
+#homepage{
   font-family: 'Neonderthaw', cursive;
   font-size: 50px;
   margin-left: 20px;
   margin-top: -2px;
   color: #0FA3B1;
+  border: none;
+  background-color: #EDDEA4;
 
 }
+
+#homepage:hover {
+  text-shadow: #f7a173 1px 0 10px;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
+  /* font-family: 'Source Sans 3', sans-serif; */
   font-size: 15px;
   background-color: #EDDEA4;
   color: rgb(26, 26, 26)
@@ -36,15 +44,20 @@ form {
 }
 
 .ingredient {
-  border: 3px solid #F7A072;
+  border: 3px solid #f7a173;
   border-radius: 10px;
   margin-bottom: 5px;
   padding: 5px;
 
 }
 
+.ingredient:hover {
+  transition: 100ms;
+  border-color: hsl(21, 89%, 71%, 0.5);
+}
 
-button {
+
+.pinkButton {
   height: 30px;
   width: 70px;
   background-color: #F7A072;
@@ -53,7 +66,14 @@ button {
   margin-left: 10px;
   border-radius: 10px;
   border-color: #0FA3B1;
+  /* font-family: 'IBM Plex Sans', sans-serif; */
+  font-family: 'Faustina', serif;
+  color: white;
 
+}
+
+.pinkButton:hover {
+  text-shadow: 0.5px 0.5px 1px rgb(26, 26, 26)
 }
 
 .recipe {
@@ -86,6 +106,8 @@ a {
   padding: 5px;
   border: 1px solid #F7A072;
   border-radius: 10px;
+  text-align: center;
+  font-size: 80%
 }
 
 button.delete {
@@ -96,4 +118,7 @@ button.delete {
   display: flex;
   justify-content: center;
   float: right;
+  color: rgb(26, 26, 26);
+  font-family: 'IBM Plex Sans', sans-serif;
+
 }

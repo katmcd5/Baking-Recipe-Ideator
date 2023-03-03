@@ -58,6 +58,7 @@ function createCheckbox() {
     const submit = document.createElement('button');
     submit.setAttribute('type', 'submit');
     submit.id = 'submitButton';
+    submit.setAttribute('class', 'pinkButton');
     //create button label
     const text = document.createTextNode('Submit');
     submit.appendChild(text);
@@ -72,6 +73,7 @@ function createCheckbox() {
     const random = document.createElement('button');
     random.setAttribute('type', 'submit');
     random.id = 'randomButton';
+    random.setAttribute('class', 'pinkButton');
     const text = document.createTextNode('Random');
     random.appendChild(text);
     form.appendChild(random);
