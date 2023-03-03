@@ -18,6 +18,7 @@
     "url": "https://github.com/katmcd5/Solo-Proj/issues"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
     "mongoose": "^5.11.9",
     "multer": "^1.4.5-lts.1",

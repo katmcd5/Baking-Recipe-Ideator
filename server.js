@@ -7,6 +7,7 @@ const upload = multer();
 
 
 const recipeController = require('./recipeController');
+const userController = require('./userController');
 
 const PORT = 3000;
 
@@ -16,9 +17,10 @@ app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/client')));
 
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, 'client/index.html'))
+  res.sendFile(path.join(__dirname, 'client/login.html'))
 ); //serve index.html
 
+app.get('/recipes', (req, res) => res.sendFile(path.join(__dirname, 'client/index.html')));
 
 app.post('/ingredients', upload.none(), recipeController.getRecipe, (req, res) => {
   res.status(200).json(res.locals.recipeFound);
@@ -28,6 +30,24 @@ app.get('/random', upload.none(), recipeController.randomRecipe, (req, res) => {
   res.status(200).json(res.locals.random);
 })
 
+app.post('/signup', 
+  userController.createUser, 
+  (req, res) => {
+  // what should happen here on successful sign up?
+    res.redirect('/recipes')
+  });
+
+
+
+/**
+* login
+*/
+app.post('/login', userController.verifyUser,
+  (req, res) => {
+  // what should happen here on successful log in?
+  // if (res.locals.user.length === 0) res.redirect('/signup');
+    res.redirect('/recipes')
+  });
 
 app.use((req, res) => res.sendStatus(404));
 
